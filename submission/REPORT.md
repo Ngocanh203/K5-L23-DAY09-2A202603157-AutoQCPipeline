@@ -51,6 +51,10 @@ Precision 1,00 của ảnh gần trùng chỉ được đo trên tập calib có
 Train YOLO26n trong 20 epoch với seed 0 và 1, rồi đánh giá trên cùng 100 ảnh test. mAP50 trung bình tăng từ 0,72575 (raw) lên 0,72940 (clean), tức +0,365 điểm phần trăm. mAP50–95 giảm từ 0,51170 xuống 0,49960. Độ lệch chuẩn mẫu của mAP50 giữa hai seed là 0,00021 với raw và 0,00240 với clean. Với hai seed, chưa đủ cơ sở kết luận clean cải thiện ổn định. Bản clean dùng để train là bản nháp ở trạng thái Hold.
 
 Hai giả thuyết cần kiểm tra là ảnh bị gắn cờ LEAK_TEST có thể làm điểm raw lạc quan hơn, và bản clean vẫn còn 34/193 ảnh có cảnh báo chưa duyệt. Có thể kiểm tra bằng cách chạy lại raw sau khi loại riêng các ảnh LEAK_TEST, rồi thử một bản clean đã duyệt thêm với cùng cấu hình train.
+| biến thể | #ảnh train | số seed | map50 (TB ± độ lệch) | map50_95 (TB ± độ lệch) | precision (TB ± độ lệch) | recall (TB ± độ lệch) |
+|---|---|---|---|---|---|---|
+| raw | 224 | 2 | 0.726 ± 0.000 | 0.512 ± 0.004 | 0.764 ± 0.061 | 0.649 ± 0.028 |
+| clean | 193 | 2 | 0.729 ± 0.002 | 0.500 ± 0.000 | 0.794 ± 0.028 | 0.619 ± 0.005 |
 
 ## 6. Quyết định và ghi chú AI
 
